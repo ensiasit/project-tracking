@@ -1,0 +1,7 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://${MONGO_USERNAME:root}:${MONGO_PASSWORD:root}@${MONGO_HOST:localhost}:${MONGO_PORT:27017}/${MONGO_D®ATABASE:project-tracker}
