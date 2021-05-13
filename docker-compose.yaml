@@ -1,0 +1,29 @@
+networks:
+  project-tracker:
+
+services:
+  mongodb:
+    image: mongo:3
+    expose:
+      - 27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+    networks:
+      project-tracker:
+        aliases:
+          - mongodb
+  api:
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      - MONGO_USERNAME=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - MONGO_HOST=mongodb
+      - WAIT_HOSTS=mongodb:27017
+      - WAIT_HOSTS_TIMEOUT=120
+    networks:
+      - project-tracker
+    depends_on:
+      - mongodb
