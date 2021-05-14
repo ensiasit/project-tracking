@@ -18,4 +18,4 @@ jobs:
         host: ${{ secrets.SERVER_HOST }}
         username: ${{ secrets.SERVER_USERNAME }}
         password: ${{ secrets.SERVER_PASSWORD }}
-        script: sh -c /root/deploy.sh
+        script: zsh -c /root/deploy.sh
