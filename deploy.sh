@@ -25,7 +25,7 @@ function fetch_docker_compose() {
     rm "$DOCKER_COMPOSE_FILE"
   fi
 
-  curl https://raw.githubusercontent.com/ensiasit/project-tracking/main/docker-compose.yaml --output "$DOCKER_COMPOSE_FILE"
+  curl https://raw.githubusercontent.com/ensiasit/project-tracking/production/docker-compose.yaml --output "$DOCKER_COMPOSE_FILE"
 }
 
 purge_docker && fetch_docker_compose
