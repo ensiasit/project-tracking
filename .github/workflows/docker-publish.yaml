@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - main
-      - production
-      
+
 env:
   IMAGE_NAME: api
 
@@ -42,10 +41,7 @@ jobs:
       - name: Push image
         run: |
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-          
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-          [ "$VERSION" == "main" ] && VERSION=snapshot
-          [ "$VERSION" == "production" ] && VERSION=latest
+          VERSION=snapshot
 
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
