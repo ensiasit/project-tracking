@@ -1,4 +1,4 @@
-name: Docker
+name: "[Staging] Build and Push"
 
 on:
   push:
