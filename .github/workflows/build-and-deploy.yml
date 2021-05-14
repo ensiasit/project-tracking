@@ -5,6 +5,9 @@ on:
     branches:
       - production
 
+env:
+  IMAGE_NAME: api
+
 jobs:
   test:
     runs-on: ubuntu-latest
